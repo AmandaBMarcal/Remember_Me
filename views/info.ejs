@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Remember Me!</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="info.css">
+</head>
+
+<body>
+    <header class="page-header text-center">
+        <h1>Remember Me!</h1>
+        <a href="/">Home</a>.</p>
+    </header>
+    <div class="container">
+      <form action="/info" class="form" method="post">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="bday">Birthday:</label>
+      <input type="date" class="form-control" id="bday"name="bday" required>
+    </div>
+    <div class="form-group">
+      <label for="bday">Contact Name:</label>
+      <input type="con" class="form-control" id="con" placeholder="Enter Caregiver Name Here" name="con" required>
+    </div>
+    <div class="form-group">
+      <label for="bday">Contact Number:</label>
+      <input type="tel" class="form-control" id="tele" placeholder="xxx-xxx-xxxx" name="tele" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+    </div>
+
+</body>
+
+</html>

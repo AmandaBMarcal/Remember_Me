@@ -1,0 +1,38 @@
+/* info.ejs */
+* {
+  box-sizing: border-box;
+}
+body {
+  background: url(img/black_ribbon.jpeg)
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+   background-size: cover;
+}
+
+.container {
+  margin-bottom: 100px;
+  margin-top: 70px;
+}
+
+h1 {
+  font-size: 50px;
+}
+h1 > a {
+  font-size: 20px;
+}
+
+h1, label, p, a {
+  color: white;
+  font-family: 'Bree Serif', serif;
+  font-family: 'Courgette', cursive;
+}
+
+/* button */
+.btn-primary {
+  background-color: white;
+  border-color: black;
+  color: black;
+  margin-left: 45%;
+}

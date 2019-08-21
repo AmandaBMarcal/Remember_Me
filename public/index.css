@@ -1,0 +1,28 @@
+/* index.ejs */
+* {
+  box-sizing: border-box;
+}
+body {
+background: url(img/ribbon.jpeg);
+no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+ background-size: cover;
+}
+h1 {
+  border-bottom: 1px solid white;
+  font-size: 80px;
+  font-family: 'Bree Serif', serif;
+  font-family: 'Courgette', cursive;
+  color: white;
+}
+p {
+  font-size: 50px;
+  font-family: 'Bree Serif', serif;
+  font-family: 'Courgette', cursive;
+  color: white;
+}
+.text-center{
+  margin-left: 30%;
+}

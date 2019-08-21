@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+  <title>Remember Me!</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+  <body class="homepage is-preload">
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <div id="header">
+
+        <!-- Inner -->
+        <div class="inner">
+          <header>
+            <h1 class="title"><a href="index.html" id="logo">Remember Me!</a></h1>
+            <hr />
+            <h2 class="name"> Hello <%- user %>,</h2>
+          </header>
+          <footer>
+            <a href="#banner" class="button circled scrolly">Start</a>
+          </footer>
+        </div>
+
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Dropdown</a>
+              <ul>
+                <li><a href="#">Lorem ipsum dolor</a></li>
+                <li><a href="#">Magna phasellus</a></li>
+                <li><a href="#">Etiam dolore nisl</a></li>
+                <li>
+                  <a href="#">And a submenu &hellip;</a>
+                  <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Phasellus consequat</a></li>
+                    <li><a href="#">Magna phasellus</a></li>
+                    <li><a href="#">Etiam dolore nisl</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Veroeros feugiat</a></li>
+              </ul>
+            </li>
+            <li><a href="left-sidebar.html">Left Sidebar</a></li>
+            <li><a href="right-sidebar.html">Right Sidebar</a></li>
+            <li><a href="no-sidebar.html">No Sidebar</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <!-- Banner -->
+      <div id="banner" class="wrapper style1">
+
+        <div class="container">
+          <div class="row gtr-200">
+            <div class="col-4 col-12-mobile" id="sidebar">
+              <hr class="first" />
+
+              <!-- This is the left section -->
+              <section>
+                <header>
+                  <h2><span id= "timer">00 : 10</span></h2>
+                </header>
+                <section class="rulesSec">
+                  <h4 class="rules">Please see the rules below.</h4>
+                  <p>1. Keywords will be in bold.</p>
+                  <p>2. Recollect what you just memorized through a set of pictures.</p>
+                  <p>3. If you feel as though the picture you chose is not the right one, simply click to remove.</p>
+                </section>
+                <footer>
+                  <a id="play" class="button">Click to Play</a>
+                  <button type="button" id="score" name="button">Get Grade!</button>
+                </footer>
+              </section>
+              <hr />
+            </div>                 <!-- col-4 col-12-mobile -->
+
+
+            <!-- this is the right section -->
+            <div class="col-8 col-12-mobile imp-mobile" id="content">
+              <article id="main">
+                <header>
+                  <ol id="recipeInstructions">
+                    <% for(var i=0; i<recipe.recipe.length; i++) { %>
+                      <li><%- recipe.recipe[i] %></li>
+                      <% } %>
+                    </ol>
+                  </header>
+
+
+                  <section id="popPictures">
+                    <%
+                    //image randomizer
+                    let images = []
+                    console.log()
+                    for(var i=0; i<recipe.images.length; i++) {
+                      images.push(`<img class="recipe-image" src=${recipe.images[i]} keyword=${recipe.keywords[i]} alt=""/>`)   //creating an img tag as a string
+                    }
+                    %>
+
+                    <%
+                    function shuffleArray(array) {
+                      for (var i = array.length - 1; i > 0; i--) {
+                        var j = Math.floor(Math.random() * (i + 1));
+                        var temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                      }
+                    }
+                    shuffleArray(images) //shuffle an array of img tags
+                    %>
+
+                    <% for(var i=0; i<images.length; i++) {
+                      //render the strings in the images array as html
+                      %>
+                      <%- images[i] %>
+                      <% } %>
+                    </section>
+
+                    <section id="selected" class="boxes highlight">
+                      <img class= "highlight selected-image" src="" alt="">
+                      <img class= "highlight selected-image" src="" alt="">
+                      <img class= "highlight selected-image" src="" alt="">
+                      <img class= "highlight selected-image" src="" alt="">
+                      <img class= "highlight selected-image" src="" alt="">
+                      <img class= "highlight selected-image" src="" alt="">
+                    </section>
+
+                    <section class="score">
+
+                      <p id="grade" class="grade" name="score"></p>
+                      <a href="#chart" class="results button circled scrolly">Show Chart Results</a>
+                      <!-- <button type="button" class="results" name="button">Show Chart Results</button> -->
+                      <!-- <button id="listScore" type="button" class="results" name="button">Add New Score</button> -->
+                      <a href="#banner" id="listScore" class="results button circled scrolly">Add New Score</a>
+
+                    </section>
+
+
+
+
+                  </article>
+                </div>
+              </div> 		<!-- row gtr-200 -->
+              <hr />
+
+
+
+              <!-- bottom section -->
+              <div class="row">
+
+
+
+
+
+
+                <!-- chart -->
+                <div id="chartData" class="chart">
+                  <canvas id="chart" width="720" height="400"></canvas>
+                </div>
+
+              </div>
+            </div> 							<!-- container -->
+          </div> 	            	<!-- wrapper style1 -->
+
+
+
+
+
+
+
+
+
+
+          <!-- Footer -->
+          <div id="footer">
+
+            <div class="row">
+              <div class="col-12">
+
+
+                <!-- Contact -->
+                <section class="contact">
+                  <header>
+                    <h3>Nisl turpis nascetur interdum?</h3>
+                  </header>
+                  <p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
+                  <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+                    <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                    <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+
+
+
+
+
+
+            <script>    //recipe object
+            const recipe = <%- JSON.stringify(recipe) %>
+            </script>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.dropotron.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/jquery.scrollex.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="chart.js"></script>
+            <script src="main.js"></script>
+            <script src="timer.js"></script>
+            <script src="image.js"></script>
+            <script src="score.js"></script>
+
+            <script language="javascript">
+            // renderTrash(<% info %>)
+            </script>
+          </body>
+          </html>

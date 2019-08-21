@@ -1,0 +1,59 @@
+body {
+  background: rgb(230,230,250);
+}
+img{
+  height: 100px;
+}
+#recipeInstructions, #popPictures{
+  display:none;
+}
+.showMenu{
+  display:block;
+}
+
+#selected{
+  width: 100%;
+}
+
+#sidebar {
+  height:600px;
+}
+
+/* keywords */
+.red {
+  border-bottom: 1px solid black;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+.score{
+  display: none;
+}
+.rules {
+  font-size: 20px;
+}
+.rules + p, .rules + p + p, .rules + p + p + p {
+  font-size: 20px;
+}
+
+/* timer */
+#timer {
+  font-size: 60px;}
+
+.rulesSec {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#recipeInstructions {
+  list-style-type: none;
+}
+
+/* score section */
+.grade{
+  margin-left: 40%;
+  font-size: 70px;
+}
+div.row{
+  margin: 0;
+}

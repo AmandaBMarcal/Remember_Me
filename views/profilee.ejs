@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+  <title>Remember Me!</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+</head>
+<body>
+
+  <div class="page-header text-center">
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    <h1 class="title">Remember Me!</h1>
+    <h4 class="motto">A memory game that allows you to improve your recollection by recalling the steps to various delicious cooking recipes.</h4>
+    <h2 class="name"> Hello <%- user %>,</h2>
+  </div>
+
+  <div class="container">
+
+
+    <div class="row">
+      <button id="play" type="button">Click to play</button>
+      <span id= "timer">00 : 10</span>
+      <section class="rulesSec">
+        <h4 class="rules">Please see the rules below.</h4>
+        <h5>A set of instructions will appear.</h5>
+        <h5>Please take your time to memorize the keywords that are in bold.</h5>
+        <h5>Reccolect what you just memorized through a set of pictures.</h5>
+        <h5>If you feel as though the picture you chose is not the right one, simply click to remove.</h5>
+        <h5>When finished, be sure to list your score to get a new recipe.</h5>
+        <h5> Lastly, check your progression over time with your caretaker.</h5>
+      </section>
+
+
+      <ol id="recipeInstructions">
+        <% for(var i=0; i<recipe.recipe.length; i++) { %>
+          <li><%- recipe.recipe[i] %></li>
+          <% } %>
+          <!--
+          <% for(var i=0; i<recipe.images.length; i++) { %>
+            <li><img src="<%- recipe.images[i] %>" alt=""></li>
+            <% } %> -->
+          </ol>
+
+
+        <section id="popPictures">
+          <%
+          //image randomizer
+          let images = []
+          console.log()
+          for(var i=0; i<recipe.images.length; i++) {
+            images.push(`<img class="recipe-image" src=${recipe.images[i]} keyword=${recipe.keywords[i]} alt=""/>`)   //creating an img tag as a string
+          }
+          %>
+
+          <%
+          function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+              var temp = array[i];
+              array[i] = array[j];
+              array[j] = temp;
+            }
+          }
+          shuffleArray(images) //shuffle an array of img tags
+          %>
+
+          <% for(var i=0; i<images.length; i++) {
+            //render the strings in the images array as html
+            %>
+            <%- images[i] %>
+            <% } %>
+          </section>
+
+          <section id="selected" class="boxes highlight">
+            <img class= "highlight selected-image" src="" alt="">
+            <img class= "highlight selected-image" src="" alt="">
+            <img class= "highlight selected-image" src="" alt="">
+            <img class= "highlight selected-image" src="" alt="">
+            <img class= "highlight selected-image" src="" alt="">
+            <img class= "highlight selected-image" src="" alt="">
+          </section>
+
+          <section class="score">
+
+            <button type="button" id="score" name="button">Get Grade!</button>
+            <p class="grade" name="score">Click "Get Grade" To See What You Scored</p>
+            <button type="button" class="results" name="button">Show Chart Results</button>
+            <button id="listScore" type="button" class="results" name="button">Add New Score</button>
+
+          </section>
+
+        </div>
+
+
+        <!-- score list -->
+        <% JSON.stringify(info, null, 2) %>
+        <span class= listScore>List of your scores.</span>
+        <ol id="scoreLi">
+          <% for(var i=0; i<info.length; i++) { %>
+            <div>
+              <li class="liScore"><%= info[i].score %></li>
+              <span><i class="fas fa-trash-alt"></i></span>
+            </div>
+            <% } %>
+          </ol>
+
+
+          <!-- chart -->
+          <div class="chart">
+            <canvas id="chart" width="720" height="400"></canvas>
+          </div>
+
+
+
+
+
+        </div>
+      </body>
+      <script>    //recipe object
+      const recipe = <%- JSON.stringify(recipe) %>
+      </script>
+
+      <script src="chart.js"></script>
+      <script src="main.js"></script>
+      <script src="timer.js"></script>
+      <script src="image.js"></script>
+      <script src="score.js"></script>
+
+      <script language="javascript">
+      // renderTrash(<% info %>)
+      </script>
+
+      </html>

@@ -1,0 +1,34 @@
+/* login.ejs */
+* {
+  box-sizing: border-box;
+}
+body {
+  background: url(img/ribbon.jpeg)no-repeat center center fixed;
+}
+
+/* header  */
+h1, label, p, a {
+  color: white;
+}
+h1 {
+  font-size: 50px;
+  font-family: 'Bree Serif', serif;
+  font-family: 'Courgette', cursive;
+}
+label {
+  font-family: 'Bree Serif', serif;
+  font-family: 'Courgette', cursive;
+  font-size: 20px;
+}
+
+/* login button */
+.btn-warning {
+  background-color: white;
+  border-color: white;
+}
+.btn-lg {
+  color: black;
+}
+a {
+  border-bottom: 1px solid white;
+}
