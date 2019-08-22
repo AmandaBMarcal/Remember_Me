@@ -20,7 +20,7 @@ const countDown = () => {
   // when time gets to 00 we need to stop
   if ((sec < 1 && min < 1) && !startMatching){
     document.getElementById("recipeInstructions").style.display = 'none';
-    document.getElementById("timer").innerHTML = '00 : 10';
+    document.getElementById("timer").innerHTML = '00 : 25';
     document.getElementById("popPictures").style.display = 'block';
     startMatching = true
   }else {
