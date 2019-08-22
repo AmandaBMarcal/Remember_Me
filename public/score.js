@@ -31,7 +31,7 @@ let saveScore = () => { // function to keep track of score
 
   for (let i = 0; i < selectedImages.length; i++) {
     console.log('derp', selectedImages[i].getAttribute("keyword"), recipe.keywords[i])
-    
+
     if (selectedImages[i].getAttribute("keyword") === recipe.keywords[i] ) {
       correct += 1;
     }
@@ -58,12 +58,6 @@ let saveScore = () => { // function to keep track of score
 let listScore = () => {
     window.location.reload()
 }
-
-// // trash
-// let renderTrash = (info) => {
-//   console.log(info, "info");
-// }
-
 
 
 Array.from(trash).forEach(function(element) {
