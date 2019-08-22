@@ -1,11 +1,26 @@
-body {
+#banner {
   background: rgb(230,230,250);
 }
+video {
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+#header{
+  background-color: black;
+  opacity: .6;
+  z-index: 1;
+}
 img{
-  height: 100px;
+  height: 125px;
 }
 #recipeInstructions, #popPictures{
   display:none;
+}
+#recipeInstructions{
+  font-size: 30px;
 }
 .showMenu{
   display:block;
@@ -56,4 +71,10 @@ img{
 }
 div.row{
   margin: 0;
+}
+
+/* chart */
+#chartData{
+  margin-left: 14%;
+  margin-bottom: 300px;
 }
