@@ -28,14 +28,19 @@ let saveScore = () => { // function to keep track of score
   let selectedImages = document.querySelectorAll('.selected-image'); // array of selected images
   let grade = document.querySelector('.grade'); // paragraph to show grade    //PUT
 
+
   for (let i = 0; i < selectedImages.length; i++) {
+    console.log('derp', selectedImages[i].getAttribute("keyword"), recipe.keywords[i])
+    
     if (selectedImages[i].getAttribute("keyword") === recipe.keywords[i] ) {
       correct += 1;
     }
   };
 
-  grade.innerHTML = Math.floor((correct / recipe.keywords.length ) * 100) + "%"; // puts grade % in paragraph
+
   let newScore = Number(Math.floor((correct / recipe.keywords.length ) * 100))
+  grade.innerHTML = newScore + "%"; // puts grade % in paragraph
+  console.log('new score', newScore)
   chartData.push(newScore); // pushes grade to chart array
 
   fetch('/score',{
